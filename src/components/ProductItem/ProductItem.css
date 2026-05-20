@@ -1,0 +1,124 @@
+.product-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1.25rem;
+	background: var(--light-bg);
+	border-radius: 8px;
+	border-left: 4px solid var(--primary-blue);
+	transition: var(--transition);
+	animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.product-item:hover {
+	transform: translateX(4px);
+	box-shadow: var(--shadow);
+}
+
+.product-item.bought {
+	border-left-color: var(--success);
+	opacity: 0.7;
+}
+
+.product-item.bought .product-title {
+	text-decoration: line-through;
+	color: var(--text-secondary);
+}
+
+.product-info {
+	flex: 1;
+}
+
+.product-title {
+	font-size: 1.125rem;
+	margin-bottom: 0.25rem;
+	color: var(--text-primary);
+}
+
+.product-meta {
+	display: flex;
+	gap: 1rem;
+	font-size: 0.875rem;
+	color: var(--text-secondary);
+}
+
+.product-actions {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.action-btn {
+	padding: 0.625rem 1rem;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	transition: var(--transition);
+}
+
+.toggle-btn {
+	background: var(--white);
+	color: var(--text-secondary);
+	border: 2px solid var(--border-color);
+}
+
+.toggle-btn:hover {
+	border-color: var(--success);
+	color: var(--success);
+}
+
+.toggle-btn.active {
+	background: var(--success);
+	color: var(--white);
+	border-color: var(--success);
+}
+
+.delete-btn {
+	background: var(--white);
+	color: var(--danger);
+	border: 2px solid var(--border-color);
+	padding: 0.625rem;
+}
+
+.delete-btn:hover {
+	background: var(--danger);
+	color: var(--white);
+	border-color: var(--danger);
+}
+
+@media (max-width: 768px) {
+	.product-item {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.product-actions {
+		width: 100%;
+		justify-content: flex-end;
+	}
+
+	.action-btn span {
+		display: none;
+	}
+}
+
+@media (max-width: 480px) {
+	.product-item {
+		padding: 1rem;
+	}
+}
